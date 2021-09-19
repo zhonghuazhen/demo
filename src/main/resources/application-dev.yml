@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: root
+
+mybatis-plus:
+  mapper-locations: classpath:com/example/demo/mybatis/mappers/*Mapper.xml
+  type-aliases-package: com.example.demo.model
+  global-config:
+    db-config:
+      #表名、是否使用下划线命名,默认为true
+      tableUnderline: true
+  configuration:
+    #指将带有下划线的表字段映射为驼峰格式的实体类属性
+    map-underscore-to-camel-case: true
+    #开启二级缓存，默认开启
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+
+swagger:
+  enable: true
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
